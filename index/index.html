@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/f77600b8df.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <header>
+        <div class="header_left">
+            <h1>Тихонова Таїсія</h1>
+            <div class="bio">
+                <p> Я - учениця 10 класу, вивчаю код вже десь 5 місяців. Цей сайт є моєю візитною карткою, що продемонструє мої навички у створенні сайтів.</p>
+                <p>Крім програмування я активно вивчаю українську мову, англійську мову, та готуюся до НМТ з історії. За ці два роки, що мені залишилося навчатися, планую отримати золоту медь, але це ще під питанням, адже вже зараз для мене складно це зробити.</p>
+            </div>
+        </div>
+        <div class="header_right">
+            <div class="header_btn">
+                <i class="fa-solid fa-chevron-down"></i>
+            </div>
+        </div>
+    </header>
+    <main>
+        <section class="skills">
+            <h1>Навички</h1>
+            <div class="section_row">
+                <div class="section_item">
+                    <img src="html_logo.png" alt="">
+                </div>
+                <div class="section_item">
+                    <img src="css_logo.png" alt="">
+                </div>
+                <div class="section_item">
+                    <img src="js_logo.png" alt="">
+                </div>
+            </div>
+        </section>
+        <section class="projects">
+            <h1>Проєкти</h1>
+            <div class="section_row">
+                <div class="section_item github">
+                    <a href="https://github.com/FoxyTisia" target="_blank">
+                        <img src="github_logo.png" alt="">
+                    </a>
+                </div>
+            </div>
+        </section>
+        <section class="contacts">
+            <h1>Контакти</h1>
+            <div class="section_row">
+                <div class="section_item">
+                    <a href="https://www.instagram.com/_t_i_a_t_i_/?next=%2F" target="_blank">
+                        <img src="Instagram_icon.png.webp" alt="">
+                    </a>
+                </div>
+                <div class="section_item">
+                    <a href="https://t.me/Foxier_t" target="_blank">
+                        <img src="tg_logo.svg" alt="">
+                    </a>
+                </div>
+                <div class="section_item">
+                    <a href="mailto:tasa9080@gmail.com" target="_blank">
+                        <img src="email_logo.png" alt="">
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <div class="footer_content">
+            Створено Таїсією з любов'ю у 2024 
+        </div>
+    </footer>
+    <script>
+       
+        const scrollToBottomBtn = document.querySelector('.header_btn');
+
+        function smoothScrollToBottom(duration) {
+            const start = window.pageYOffset;
+            const distance = document.body.scrollHeight - start;
+            let startTime = null;
+
+            function animation(currentTime) {
+                if (startTime === null) startTime = currentTime;
+                const timeElapsed = currentTime - startTime;
+                const run = ease(timeElapsed, start, distance, duration);
+
+                window.scrollTo(0, run);
+
+                if (timeElapsed < duration) {
+                    requestAnimationFrame(animation);
+                }
+            }
+
+            
+            function ease(t, b, c, d) {
+                t /= d / 2;
+                if (t < 1) return c / 2 * t * t + b;
+                t--;
+                return -c / 2 * (t * (t - 2) - 1) + b;
+            }
+
+            requestAnimationFrame(animation);
+        }
+
+        
+        scrollToBottomBtn.addEventListener('click', () => {
+            smoothScrollToBottom(2000); 
+        });
+    </script>
+</body>
+</html>
